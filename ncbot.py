@@ -79,7 +79,7 @@ class ncbot:
                 attack_sock.sendall(f"{self.nick} {next(iter(self.seen_nonces))}\n".encode())
                 self.send_message(f"-attack {self.nick} OK")
         except Exception as e:
-            self.send_message(f"-attack {self.nick} FAIL {str(e)}")
+            self.send_message(f"-attack {self.nick} {str(e)}")
 
     def move_to_new_server(self, args):
         if len(args) != 1:
@@ -99,4 +99,4 @@ if __name__ == "__main__":
     nick = sys.argv[2]
     secret = sys.argv[3]
     
-    bot = NCBot(hostname, port, nick, secret)
+    bot = ncbot(hostname, port, nick, secret)
