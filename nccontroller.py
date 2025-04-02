@@ -44,7 +44,6 @@ def handle_status(socket):
     socket.sendall((nonce + " " + mac + " status" + "\n").encode())
     response = listen(socket)
 
-    print(response)
     print(f"Result: {len(response)} bots replied.")
     
     formatted = [f"{resp.split()[1]} ({resp.split()[2]})" for resp in response]
